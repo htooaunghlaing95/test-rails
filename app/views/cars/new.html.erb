@@ -1,0 +1,19 @@
+<h1>Add car for <%= params[:user_id] %> </h1>
+
+
+<%= form_with scope: :car, url: cars_path, 
+local: true do |form| %>
+ 
+  <%= form.hidden_field :user_id, :value => params[:user_id] %>
+
+  <p>
+    <%= form.label :car_name %> <br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.submit%>
+  </p>
+<% end %>
+
+<%= link_to "Return to User Listing" , users_path %>

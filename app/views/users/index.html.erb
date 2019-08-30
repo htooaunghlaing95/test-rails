@@ -18,6 +18,8 @@
 						<%=	link_to "Edit", edit_user_path(user) %>
 						<%= link_to "Delete", user_path(user),
 						method: :delete %>
+
+						<%= link_to "Add Car", new_car_path + "?user_id=#{user.id}" %>
 					</td>
 				</tr>
 			<%	end %>
@@ -25,6 +27,7 @@
 	</table>
 	</div>
 
-	<%= link_to "Create New User", new_user_path(@user) %>
-
+	<%= link_to "Create New User", new_user_path(@user) %> 
+	<br>
+	<%= link_to "Back" , root_path %>
 
