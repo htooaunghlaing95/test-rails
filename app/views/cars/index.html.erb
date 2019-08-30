@@ -28,6 +28,32 @@
 	</div>
 
 	<br>
+
+
+	<h1> How many car each owner has. </h1>
+
+	<div>
+		<table border="2">
+			<thead>
+				<tr>
+					<th>Owner Name</th>
+					<th>Car Count</th>
+				</tr>
+			</thead>
+		
+		<tbody>
+			<% @carsOwner.each do |car| %>
+				<tr>
+					<td><%= User.find(car.user_id).username %></td>
+					<td><%= Car.where(:user_id => car.user_id).count %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>
+
+
+	<br>
 	<%= link_to "Add Cars to Owners" , users_path %>
 	<br>
 	<%= link_to "Back" , root_path %>
