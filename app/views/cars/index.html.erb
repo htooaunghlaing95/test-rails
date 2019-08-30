@@ -5,14 +5,16 @@
 			<thead>
 				<tr>
 					<th>Car Name</th>
+					<th>Owner Name</th>	
 					<th>Actions</th>
 				</tr>
 			</thead>
 		
 		<tbody>
-			<% @cars.each do |car| %>
+			<% @carsOwner.each do |car| %>
 				<tr>
 					<td><%= car.name %></td>
+					<td><%= User.find(car.user_id).username %></td>
 					<td>
 						<%= link_to "Show", car_path(car) %>
 						<%=	link_to "Edit", edit_car_path(car) %>
@@ -25,6 +27,7 @@
 	</table>
 	</div>
 
-	<%= link_to "Create New Car", new_car_path(@car) %> 
+	<br>
+	<%= link_to "Add Cars to Owners" , users_path %>
 	<br>
 	<%= link_to "Back" , root_path %>

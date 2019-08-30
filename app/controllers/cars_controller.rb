@@ -2,7 +2,10 @@ class CarsController < ApplicationController
 	
 	def index
 		@cars = Car.all
+
+		@carsOwner = Car.joins(:user).select("users.id as user_id, cars.name, cars.id")
 	end
+
 
 	def new
 		@cars = Car.new
@@ -24,10 +27,10 @@ class CarsController < ApplicationController
 	end
 
 	def update
-		@car = User.find(params[:id])
+		@car = Car.find(params[:id])
 		if @car.update(car_params)
 			flash[:notice] = "car information Updated!"
-			redirect_to users_path
+			redirect_to cars_path
 		else
 			flash[:error] = "Failed to update!"
 			render 'edit'
@@ -42,11 +45,13 @@ class CarsController < ApplicationController
 		@car = Car.find(params[:id])
 		if @car.delete
 			flash[:notice] = "Car Deleted!"
+			redirect_to cars_path
 		else
 			flash[:error] = "Failed to delete this Car!"
 			render 'destroy'
 		end
 	end
+
 
 	private
 

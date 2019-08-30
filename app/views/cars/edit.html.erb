@@ -1,0 +1,15 @@
+<h1>Edit your Account</h1>
+
+<%= form_for @car, url: {action: :update} do |form| %>
+  
+	<p>
+    <%= form.label :name %> <br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.submit%>
+  </p>
+<% end %>
+
+<%= link_to "Return to User Listing" , cars_path %>

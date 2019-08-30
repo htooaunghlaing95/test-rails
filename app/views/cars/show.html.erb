@@ -1,0 +1,4 @@
+<h1><%= @car.name %> is owned by <%= User.find(@car.user_id).username %></h1>
+
+<br>
+	<%= link_to "Cars and Owner Listings", cars_path %>
